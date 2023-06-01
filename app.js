@@ -1,5 +1,5 @@
 //FUN
-
+/*
 function getNames(cb =() =>{}){ 
     setTimeout(()=>{
         const names =['jose', 'diego', 'pedro'];
@@ -69,5 +69,60 @@ getNames
     console.log('finally');
  })
 
+
 //THEN (CORRECTO)
 //CATCH (ERROR)
+
+const url1 = 'https://jsonplaceholder.typicode.com/users';
+
+//objetoXMLHttpRequest(x)
+//fetch -
+// axios (library)
+
+const readAllUsersWithPromise1 = () =>{
+    const request = fetch('https://jsonplaceholder.typicode.com/users')
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .then((err) => console.log(err))
+    .finally(() => console.log('finally'));
+
+};
+
+const readAllUsersWithAsync1 = async () =>{
+    try{
+        const request = await fetch('https://jsonplaceholder.typicode.com/users');
+        const res = await request.json();
+        console.log(request);
+    }catch (error) {
+        console.log(error);
+    }
+};
+
+readAllUsersWithPromise1();
+readAllUsersWithAsync1();
+
+*/
+
+const url = 'https://jsonplaceholder.typicode.com/posts';
+
+const readAllUsersWithPromise = ()=>{
+    const request = fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .then((err) => console.log(err))
+    .finally(() => console.log('finalizado'));
+
+};
+
+const readAllUsersWithAsync = async () =>{
+    try{
+        const request = await fetch('https://jsonplaceholder.typicode.com/posts')
+        const res = await request.json();
+        console.log(request);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+readAllUsersWithPromise();
+readAllUsersWithAsync();
